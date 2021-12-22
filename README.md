@@ -1,2 +1,6 @@
 # MikeyB-Agility-Pyramid
 Start script with first stairs of Pyramid in clickable range and max camera zoom 100%. Be warned, eating is not reliable and you will eventually die.
+
+The format for this script and the Task system was built by reading apwils's seersAgility script. Most task conditions utilize WorldArea, but this is problematic because their conditions nearly always will override the Eat condition of having low health.
+
+Also note, the final task is dodgy in that the Doorway that has to be clicked does not have an easy to access clickable surface, so the workaround I have utilized is to pan the camera and click through the doorway onto the tile it is attached to. This results in a ~95% success rate. You will have to click manually to fix the script if this is not addressed.
