@@ -43,7 +43,8 @@ public class Pyramid extends TaskScript {
 	@Override
 	public void onExecute() {
 		startTime = System.currentTimeMillis();
-		tasks.addAll(Arrays.asList(
+		tasks.addAll(Arrays.asList(  //Note, the order that these are constructed is the order of priority. E.g. Eat first will mean health is the top priority.
+				new eat(ctx),
 				new Start(ctx),
 				new One(ctx),
 				new Two(ctx),
@@ -57,8 +58,7 @@ public class Pyramid extends TaskScript {
 				new Ten(ctx),
 				new Eleven(ctx),
 				new Twelve(ctx),
-				new Thirteen(ctx),
-				new eat(ctx)
+				new Thirteen(ctx)
 				));
 	}
 	
