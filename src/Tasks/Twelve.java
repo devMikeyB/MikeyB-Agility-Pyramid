@@ -21,15 +21,15 @@ public class Twelve extends Task {
     }
 
     @Override
-    public void run() {
+    public void run() {	
         //System.out.print("stage 1");
-
+    	ctx.mouse.click(560, 20, true);
         final SimpleObject Ledge = (SimpleObject) ctx.objects.populate().filter(37965).nearest().next();
         Ledge.turnTo();
         System.out.println("Trying to validate...");
         if(Ledge.click("Cross")){
         		System.out.println("Validated");
-        		ctx.sleep(2000);
+        		//ctx.sleep(2000);
         }
         	
     }

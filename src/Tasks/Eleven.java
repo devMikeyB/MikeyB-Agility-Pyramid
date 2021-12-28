@@ -22,8 +22,7 @@ public class Eleven extends Task {
 
     @Override
     public void run() {
-        //System.out.print("stage 1");
-
+    	ctx.mouse.click(560, 20, true);
         final SimpleObject Climbing_Rocks = (SimpleObject) ctx.objects.populate().filter(10851).nearest().next();
         Climbing_Rocks.turnTo();
         System.out.println("Trying to validate...");
@@ -31,6 +30,7 @@ public class Eleven extends Task {
         		System.out.println("Validated");
         		ctx.sleep(2000);
         }
+      
         	
     }
 

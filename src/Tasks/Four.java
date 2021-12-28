@@ -23,13 +23,13 @@ public class Four extends Task {
     @Override
     public void run() {
         //System.out.print("stage 1");
-
+    	ctx.mouse.click(560, 20, true);
         final SimpleObject stairs = (SimpleObject) ctx.objects.populate().filter(37969).nearest().next();
         stairs.turnTo();
         System.out.println("Trying to validate...");
         if(stairs.click(0)){
         		System.out.println("Validated");
-        		ctx.sleep(2000);
+        		//ctx.sleep(2000);
         }
         	
     }

@@ -8,8 +8,6 @@ import simple.hooks.wrappers.SimpleObject;
 import simple.robot.api.ClientContext;
 
 public class Start extends Task {
-	//This start point is residual from a copy/paste and should not be referenced.
-	//private static WorldPoint startPoint = new WorldPoint(3093, 3481, 0);
 	
 	public Start(ClientContext ctx) {
 		super(ctx);

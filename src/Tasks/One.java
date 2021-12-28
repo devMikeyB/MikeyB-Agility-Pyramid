@@ -23,6 +23,7 @@ public class One extends Task {
 
     @Override
     public void run() {
+    	ctx.mouse.click(560, 20, true);
         System.out.print("stage 1");
         final SimpleItem food = ctx.inventory.filter("Shark").next();
         final SimpleObject ledge = (SimpleObject) ctx.objects.populate().filter(37959).nearest().next();
@@ -36,7 +37,7 @@ public class One extends Task {
         System.out.println("Trying to validate...");
         if(ledge.validateInteractable() && ledge.click("Cross")){
         		System.out.println("Validated");
-        		ctx.sleep(2000);
+        		//ctx.sleep(2000);
         }
         	
     }

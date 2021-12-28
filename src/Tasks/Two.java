@@ -27,12 +27,13 @@ public class Two extends Task {
 
     @Override
     public void run() {
+    	ctx.mouse.click(560, 20, true);
         final SimpleObject ledge = (SimpleObject) ctx.objects.populate().filter(37960).nearest().next();
         ledge.turnTo();
         //System.out.println("Trying to validate...");
         if(ledge.click("Cross")){
         		System.out.println("Validated");
-        		ctx.sleep(2000);
+        		//ctx.sleep(2000);
         }
         	
     }

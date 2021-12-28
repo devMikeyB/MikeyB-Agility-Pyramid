@@ -23,13 +23,13 @@ public class Ten extends Task {
     @Override
     public void run() {
         //System.out.print("stage 1");
-
+    	ctx.mouse.click(560, 20, true);
         final SimpleObject Low_Wall = (SimpleObject) ctx.objects.populate().filter(37977).nearest().next();
         Low_Wall.turnTo();
         System.out.println("Trying to validate...");
         if(Low_Wall.click("Climb-over")){
         		System.out.println("Validated");
-        		ctx.sleep(2000);
+        		//ctx.sleep(2000);
         }
         	
     }
