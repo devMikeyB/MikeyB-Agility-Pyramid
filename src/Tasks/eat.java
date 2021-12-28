@@ -1,5 +1,7 @@
 package src.Tasks;
 
+import java.util.Arrays;
+
 import simple.hooks.scripts.task.Task;
 import simple.hooks.wrappers.SimpleItem;
 import simple.robot.api.ClientContext;
@@ -19,12 +21,19 @@ public class eat extends Task {
     @Override
     public void run() {
     //Eat Food
-    	final SimpleItem food = ctx.inventory.filter("Shark").next();
     	
-    	System.out.println("Eating Food....");
-    	if(food != null) {
-    		food.click(0);
+    	
+    	
+    	while (50 > ctx.players.getLocal().getHealth()) {
+    		for (SimpleItem i : ctx.inventory.populate().filterHasAction("Eat")) {
+                if (i != null && ctx.players.getLocal().getHealth() < 50)  {
+                    i.click(1);
+                    System.out.println("Clicked: " + i);
+                }
+            }
+    		
     	}
+    	
     }
 
     @Override
