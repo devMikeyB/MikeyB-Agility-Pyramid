@@ -18,9 +18,11 @@ description = "Start anywhere that ::home can be utilized.", discord = "Mike #85
 
 public class Pyramid extends TaskScript {
 	private List tasks = new ArrayList();
-	
+	public int pyramidsAcquired = 0;
+	public int runsComplete = 0;
 	private String status;
 	private long startTime;
+	//public int
 	
 	@Override
 	public boolean prioritizeTasks() {
@@ -36,14 +38,12 @@ public class Pyramid extends TaskScript {
 	public void onProcess() {
 		super.onProcess();
 		status = getScriptStatus();
-		System.out.println("Coords: " + ctx.players.getLocal().getLocation());
-		System.out.println("Animation: " + ctx.players.getLocal().getAnimation());
 	}
 	
 	@Override
 	public void onExecute() {
 		startTime = System.currentTimeMillis();
-		tasks.addAll(Arrays.asList(  //Note, the order that these are constructed is the order of priority. E.g. Eat first will mean health is the top priority.
+		tasks.addAll(Arrays.asList(
 				new eat(ctx),
 				new Start(ctx),
 				new One(ctx),
@@ -69,16 +69,21 @@ public class Pyramid extends TaskScript {
 	
 	@Override
 	public void onChatMessage(ChatMessage msg) {
-		
+		if (msg.getMessage().contains("have been rew")) {
+			pyramidsAcquired ++;
+		}
+		if (msg.getMessage().contains("completed the") ) {
+			runsComplete ++;
+		}
 	}
 	
 	@Override
 	 public void paint(Graphics g) {
         g.setColor(Color.BLACK);
-        g.fillRect(5, 2, 192, 72);
+        g.fillRect(5, 2, 192, 85);
 
         g.setColor(Color.decode("#303030"));
-        g.drawRect(5, 2, 192, 72);
+        g.drawRect(5, 2, 192, 85);
 
         g.setColor(Color.decode("#4d4d4d"));
         g.drawLine(8, 24, 194, 24);
@@ -90,6 +95,8 @@ public class Pyramid extends TaskScript {
         g.drawString("MikeyB | Agility Pyramid", 12, 20);
         g.drawString("Time: " + ctx.paint.formatTime(System.currentTimeMillis() - startTime), 14, 42);
         g.drawString("Status: " + status, 14, 56);
+        g.drawString("Runs Complated: " + runsComplete, 14, 70);
+        g.drawString("Pyramids Acquired: " + pyramidsAcquired, 14, 84);
 	}
 	
 	
